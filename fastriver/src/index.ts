@@ -2,7 +2,7 @@ import { simpleGit } from 'simple-git';
 import { existsSync, readdirSync, statSync, cpSync, mkdirSync, rmSync } from 'fs';
 import { join, basename } from 'path';
 import { tmpdir } from 'os';
-import nacl from 'tweetnacl';
+import sealedbox from 'tweetnacl-sealedbox-js';
 
 export interface AlbumOptions {
   token: string;
@@ -169,7 +169,7 @@ async function createRepoSecret(
     // Step 2: Encrypt the secret using libsodium sealed box
     const publicKey = Buffer.from(keyData.key, 'base64');
     const secretBytes = Buffer.from(secretValue);
-    const encryptedBytes = nacl.sealedBox.seal(secretBytes, publicKey);
+    const encryptedBytes = sealedbox.seal(secretBytes, publicKey);
     const encryptedValue = Buffer.from(encryptedBytes).toString('base64');
 
     // Step 3: Create/update the secret
