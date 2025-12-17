@@ -1,6 +1,6 @@
 {
   "name": "@rathnasorg/i4tow",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "CLI tool to create photo albums backed by GitHub repos",
   "type": "module",
   "bin": {
