@@ -1,0 +1,50 @@
+{
+  "name": "@rathnasorg/i4tow",
+  "version": "0.0.7",
+  "description": "CLI tool to create photo albums backed by GitHub repos",
+  "type": "module",
+  "bin": {
+    "i4tow": "./dist/cli.js"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/cli.ts src/index.ts --format esm --dts --clean",
+    "dev": "tsup src/cli.ts src/index.ts --format esm --dts --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "photo",
+    "album",
+    "github",
+    "gallery",
+    "cli"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rathnasorg/i4towsh.git"
+  },
+  "homepage": "https://rathnasorg.github.io/i4tow/p/rathnasorg",
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.3.0",
+    "vitest": "^2.0.0"
+  },
+  "dependencies": {
+    "commander": "^12.0.0",
+    "chalk": "^5.3.0",
+    "ora": "^8.0.0",
+    "simple-git": "^3.22.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
